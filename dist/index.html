@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WAYGD</title>
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">
+        <img id="logo" src="../src/assets/tony.png" alt="Tony Soprano">
+        <div class="name">WAYGD</div>
+      </div>
+      <div class="addTask">
+        <button id="add-button"><img id="add" src="../src/assets/plus-circle-outline.svg" alt=""></button>
+        <div class="form-popup" id="myForm">
+          <form action="/action_page.php" class="form-container">
+            <h1 style="text-align: center;">Add Task</h1>
+        
+            <label for="title"><b>Title:</b></label>
+            <input type="text" id="title" name="title" required>
+        
+            <label for="author"><b>Description:</b></label>
+            <textarea id="description" name="author"></textarea>
+        
+            <label for="pages"><b>Due Date:</b></label>
+            <input type="date" id="date" name="pages" required>
+            
+            <label class="checkbox" for="checkbox"><b>Important?</b></label>  
+            <input type="checkbox" id="importance" name="checkbox">
+            
+            <button type="submit" class="btn add">Add</button>
+            <button type="button" class="btn cancel">Close</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="middle">
+      <div class="navbar">
+        <p style="font-size: 20px; font-weight: 900;">Tasks</p>
+        <div class="tasks">
+          <div class="allTasks">
+            <button id="all"><img class="navbar-icon" src="../src/assets/calendar-check.svg" alt="">All</button>
+          </div>
+          <div class="today">
+            <button id="today"><img class="navbar-icon" src="../src/assets/calendar-today.svg" alt=""> Today</button>
+          </div>
+          <div class="week">
+            <button id="week"><img class="navbar-icon" src="../src/assets/calendar-week.svg" alt="">This Week</button>
+          </div>
+          <div class="important">
+            <button id="important"><img class="navbar-icon" src="../src/assets/alert-circle-outline.svg" alt="">Important</button>
+          </div>
+        </div>
+        <div class="projects">
+          <p style="font-size: 20px; font-weight: 900;">Projects</p>
+          <button id="projects"><img id="project-add" src="../src/assets/plus-circle-outline.svg" alt="">Add Project</button>
+        </div>
+      </div>
+      <div class="content">
+        <p style="font-size: 36px; font-weight: 900;">What Are You Gonna Do?</p>
+        <div class="taskContainer"></div>
+      </div>
+    </div>
+    <div class="footer">
+      <a href="https://github.com/owlbeard"><img id="footer-logo" src="../src/assets/github.svg" alt="Github Logo"></a>
+      <p id="footer-text">Copyright © 2023 || owlbeard</p>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,290 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  height: 100vh;
+  width: 100vw;
+}
+
+*:focus {
+  outline: none;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  background: #5E5E5E;
+  position: relative;
+  color: #ADAAA1;
+  gap: 12px;
+  font-size: 48px;
+}
+
+.middle {
+  display: flex;
+  flex: 1;
+  background: #ADAAA1;
+  position: relative;
+}
+
+.footer {
+  display: flex;
+  background: #101010;
+  justify-content: center;
+  align-items: center;
+  color: #ADAAA1;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.addTask {
+  margin: 0 auto;
+  position: fixed;
+  z-index: 9;
+  left: 50%;
+}
+
+#add-button {
+  background: transparent;
+  position: relative;
+  border: 0;
+  padding: 0;
+}
+
+#add {
+  height: 115px;
+  cursor: pointer;
+  filter: invert(71%) sepia(76%) saturate(32%) hue-rotate(8deg) brightness(85%) contrast(82%);
+}
+
+
+.taskContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+#footer-logo {
+  height: 50px;
+  width: auto;
+  background-color: #ADAAA1;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+#projects {
+  display: flex;
+  background: none;
+  border: 0;
+  border-radius: 12px;
+  align-items: center;
+  cursor: pointer;
+}
+
+#project-add {
+  height: 25px;
+}
+
+#projects:hover {
+  box-shadow: 0 0 10px #5E5E5E;
+}
+
+.tasks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#all, #today, #week, #important {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  flex-grow: 1;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+.allTasks, .today, .week, .important {
+  display: flex;
+  justify-content: flex-start;
+}
+
+#all:hover, #today:hover, #week:hover, #important:hover {
+  transform: translateX(4px);
+}
+
+#all:active, #today:active, #week:active, #important:active {
+  transform: translateX(4px) translateY(4px);
+}
+
+
+#logo {
+  border-radius: 50%;
+  box-shadow: 0 0 10px #ADAAA1;
+  padding: 8px;
+}
+
+button:active {
+  transform: translateY(4px);
+}
+
+.navbar-icon {
+  height: 25px;
+}
+
+.form-popup {
+  transform: scale(0);
+  position: relative;
+  right: 35%;
+  z-index: 9;
+  background: #2d2d2d;
+  border-radius: 12px;
+  color: white;
+  opacity: 55;
+}
+
+/* Add styles to the form container */
+.form-container {
+  width: 400px;
+  font-size: 16px;
+  padding: 10px;
+  position: relative;
+}
+
+.form-container input[type=text] {
+  width: 370px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(#5E5E5E, #ADAAA1); 
+  color: white;
+  font-weight: bold ;
+}
+
+.btn {
+  border-radius: 12px;
+  margin-top: 8px;
+}
+
+.form-container input[type=text]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+.form-container .btn {
+  background-color: #5E5E5E;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+.form-container .cancel {
+  background-color: #101010;
+  color: white;
+}
+
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+.backdrop-blur {
+  filter: blur(4px);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.opened {
+  transform: scale(1);
+  transition: 0.5s ease-in-out;
+}
+
+.closed {
+  transform: scale(0);
+  transition: 0.5s ease-in-out;
+  display: none;
+}
+
+textarea {
+  resize: none;
+  width: 370px;
+  height: 100px;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(#5E5E5E, #ADAAA1); 
+  color: white;
+}
+
+.task {
+  height: 300px;
+  width: 276px;
+  font-size: 30px;
+  font-weight: 900;
+  text-align: center;
+  margin: 8px;
+  white-space: pre;
+  background: linear-gradient(0.25turn, #101010, #5E5E5E);
+  color: white;
+  border-radius: 12px;
+  padding: 24px;
+  position: relative;
+  z-index: 8;
+}
+
+.task:hover {
+  box-shadow: 0 0 10px black;
+  transform: scale(1.1);
+}
+
+.deleteButton {
+  background: url(../assets/trash-can-outline.svg) no-repeat;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  padding: 0;
+  appearance: none;
+  position: relative;
+  left: 130px;
+  top: 20px;
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+}
+
+#textMark, #importance {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  position: relative;
+  top: 3px;
+}
+
+#importance:hover {
+  transform: none;
+}
+
+.textBox {
+  cursor: pointer;
+  display: block;
+}
