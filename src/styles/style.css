@@ -115,6 +115,7 @@ body {
   text-align: left;
   display: flex;
   align-items: center;
+  border-radius: 12px;
 }
 
 .allTasks, .today, .week, .important {
@@ -287,4 +288,8 @@ textarea {
 .textBox {
   cursor: pointer;
   display: block;
+}
+
+.selected {
+  background: linear-gradient(white, #a8a8a8) !important;
 }

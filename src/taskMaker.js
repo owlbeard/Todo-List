@@ -3,7 +3,7 @@ import { compareAsc } from 'date-fns'
 import { format } from 'date-fns'
 import { parse } from 'date-fns'
 
-export function taskMaker(taskList, dailies, weeklies, importantTasks) {
+export function taskMaker(taskList, dailies, weeklies) {
   let today = format(new Date(), 'dd/MM/yyyy')
   class Tasks {
     constructor(title, description, date, importance) {
@@ -16,12 +16,10 @@ export function taskMaker(taskList, dailies, weeklies, importantTasks) {
     distribute = () => { 
       taskList.push(this);
       let date = format(new Date(this.date), 'dd/MM/yyyy')
-      let important = this.importance
       let compare = compareAsc(parse(today, 'dd/MM/yyyy', new Date()), parse(date, 'dd/MM/yyyy', new Date()));
       let compareWeek = isSameWeek(parse(today, 'dd/MM/yyyy', new Date()), parse(date, 'dd/MM/yyyy', new Date()));
       if (compare === 0) dailies.push(this);
       if (compareWeek === true) weeklies.push(this);
-      if (important === "true") importantTasks.push(this);
     }
   
   }
