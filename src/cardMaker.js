@@ -1,10 +1,10 @@
-export function cardMaker(array, arrayTwo, arrayThree) {
+export function cardMaker(array) {
   let div = document.createElement("div");
   const container = document.querySelector(".taskContainer")
   array.forEach((value, index) => {
     let label = document.createElement("label");
     let input = document.createElement("input");
-    let button = document.createElement("button");
+    let deleteButton = document.createElement("button");
     div.classList.add("task");
     div.setAttribute("data-index", `${index}`);
     container.append(div);
@@ -28,62 +28,14 @@ export function cardMaker(array, arrayTwo, arrayThree) {
       input.removeAttribute("checked");
     }
     task.append(label);
-    /* Again, declaring the variable after appending the label element, to not get "null" as a selector value. */
+    
     let labelSelect = document.querySelector(`[data-label="${index}"]`);
     
     labelSelect.textContent = "Important?";
     labelSelect.append(input);
-  
-    button.classList.add("deleteButton");
-    button.setAttribute("data-trash", `${index}`);
-    task.append(button);
+    
+    deleteButton.classList.add("deleteButton");
+    deleteButton.setAttribute("data-trash", `${index}`);
+    task.append(deleteButton);
   })
-  let buttonSelect = Array.from(document.querySelectorAll("button[data-trash]"));
-  for(let i = 0; i < buttonSelect.length; i++) {
-    buttonSelect[i].addEventListener("click", (e) => {
-      let target = e.target.getAttribute("data-trash");
-      let checkTwo = arrayTwo.includes(array[target]);
-      let checkThree = arrayThree.includes(array[target]);
-      if (checkTwo) {
-        let index = arrayTwo.indexOf(array[target]);
-        arrayTwo.splice(index, 1);
-      }
-      if (checkThree) {
-        let index = arrayThree.indexOf(array[target]);
-        arrayThree.splice(index, 1);
-      }
-      array.splice(target, 1);
-      let rem = document.querySelector(`[data-index="${target}"]`)
-      rem.remove();
-    });
-  };
-  let inputSelect = Array.from(document.querySelectorAll("input[type=checkbox]"));
-  for(let i = 0; i < inputSelect.length; i++) {
-    inputSelect[i].addEventListener("click", (e) => {
-      let target = e.target.getAttribute("data-input");
-      let checkTwo = arrayTwo.includes(array[target]);
-      let checkThree = arrayThree.includes(array[target]);
-      if (!e.target.checked) {
-        if (checkTwo) {
-          let index = arrayTwo.indexOf(array[target]);
-          arrayTwo[index].importance = "false";
-        }
-        if (checkThree) {
-          let index = arrayThree.indexOf(array[target]);
-          arrayThree[index].importance = "false";
-        }
-        array[target].importance = "false";
-      }else {
-        if (checkTwo) {
-          let index = arrayTwo.indexOf(array[target]);
-          arrayTwo[index].importance = "true";
-        }
-        if (checkThree) {
-          let index = arrayThree.indexOf(array[target]);
-          arrayThree[index].importance = "true";
-        }
-        array[target].importance = "true";
-      }
-    });
-  };    
 }

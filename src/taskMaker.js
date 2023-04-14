@@ -15,7 +15,7 @@ export function taskMaker(taskList, dailies, weeklies) {
   
     distribute = () => { 
       taskList.push(this);
-      let date = format(new Date(this.date), 'dd/MM/yyyy')
+      let date = format(new Date(this.date), 'dd/MM/yyyy');
       let compare = compareAsc(parse(today, 'dd/MM/yyyy', new Date()), parse(date, 'dd/MM/yyyy', new Date()));
       let compareWeek = isSameWeek(parse(today, 'dd/MM/yyyy', new Date()), parse(date, 'dd/MM/yyyy', new Date()));
       if (compare === 0) dailies.push(this);

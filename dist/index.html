@@ -17,7 +17,7 @@
       <div class="addTask">
         <button id="add-button"><img id="add" src="../src/assets/plus-circle-outline.svg" alt=""></button>
         <div class="form-popup" id="myForm">
-          <form action="/action_page.php" class="form-container">
+          <form action="/action_page.php" class="form">
             <h1 style="text-align: center;">Add Task</h1>
         
             <label for="title"><b>Title:</b></label>
@@ -62,7 +62,29 @@
       </div>
       <div class="content">
         <p style="font-size: 36px; font-weight: 900;">What Are You Gonna Do?</p>
-        <div class="taskContainer"></div>
+        <div class="edit-form-popup" id="editForm">
+          <form action="/action_page.php" class="editForm">
+            <h1 style="text-align: center;">Add Task</h1>
+        
+            <label for="title"><b>Title:</b></label>
+            <input type="text" id="titleEdit" name="title" required>
+        
+            <label for="author"><b>Description:</b></label>
+            <textarea id="descriptionEdit" name="author"></textarea>
+        
+            <label for="pages"><b>Due Date:</b></label>
+            <input type="date" id="dateEdit" name="pages" required>
+            
+            <label class="checkbox" for="checkbox"><b>Important?</b></label>  
+            <input type="checkbox" id="importanceEdit" name="checkbox">
+            
+            <button type="submit" class="btn add edit">Add</button>
+            <button type="button" class="btn editCancel">Close</button>
+          </form>
+        </div>
+        <div class="taskContainer">
+          
+        </div>
       </div>
     </div>
     <div class="footer">
