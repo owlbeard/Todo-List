@@ -269,12 +269,12 @@ textarea {
   padding: 0;
   appearance: none;
   position: relative;
-  left: 130px;
+  left: 150px;
   top: 20px;
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
 }
 
-#textMark, #importance {
+#textMark, #importance, #importanceEdit {
   cursor: pointer;
   width: 25px;
   height: 25px;
@@ -282,7 +282,7 @@ textarea {
   top: 3px;
 }
 
-#importance:hover {
+#importance:hover #importanceEdit:hover {
   transform: none;
 }
 
@@ -295,7 +295,7 @@ textarea {
   background: linear-gradient(white, #a8a8a8) !important;
 }
 
-/* .editButton {
+.editButton {
   background: url(../assets/file-edit-outline.svg) no-repeat;
   width: 45px;
   height: 45px;
@@ -306,7 +306,7 @@ textarea {
   right: 150px;
   top: 18px;
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
-} */
+}
 
 .edit-form-popup {
   transform: scale(0);
