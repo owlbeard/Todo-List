@@ -11,7 +11,7 @@
   <div class="container">
     <div class="header">
       <div class="logo">
-        <img id="logo" src="../src/assets/tony.png" alt="Tony Soprano">
+        <img id="logo" src="../src/assets/tony.jpg" alt="Tony Soprano">
         <div class="name">WAYGD</div>
       </div>
       <div class="addTask">
@@ -58,10 +58,16 @@
         <div class="projects">
           <p style="font-size: 20px; font-weight: 900;">Projects</p>
           <button id="projects"><img id="project-add" src="../src/assets/plus-circle-outline.svg" alt="">Add Project</button>
+          <div class="projectName closed">
+            <form action="" class="projectForm">
+              <label for="project"></label>
+              <input type="text" id="project" name="project" required>
+              <button type="submit" class="confirm"><img id="confirm" src="../src/assets/check.svg" alt="check"></button>
+            </form>
+          </div>
         </div>
       </div>
       <div class="content">
-        <p style="font-size: 36px; font-weight: 900;">What Are You Gonna Do?</p>
         <div class="edit-form-popup" id="editForm">
           <form action="/action_page.php" class="editForm">
             <h1 style="text-align: center;">Edit Task</h1>

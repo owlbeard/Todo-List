@@ -20,7 +20,7 @@ body {
 .header {
   display: flex;
   flex-direction: column;
-  background: #5E5E5E;
+  background: #382F47;
   position: relative;
   color: #ADAAA1;
   gap: 12px;
@@ -30,13 +30,12 @@ body {
 .middle {
   display: flex;
   flex: 1;
-  background: #ADAAA1;
   position: relative;
 }
 
 .footer {
   display: flex;
-  background: #101010;
+  background: #382F47;
   justify-content: center;
   align-items: center;
   color: #ADAAA1;
@@ -47,6 +46,7 @@ body {
   flex-direction: column;
   align-items: center;
   flex-grow: 1;
+  background: #A43B48;
 }
 
 .addTask {
@@ -66,7 +66,7 @@ body {
 #add {
   height: 115px;
   cursor: pointer;
-  filter: invert(71%) sepia(76%) saturate(32%) hue-rotate(8deg) brightness(85%) contrast(82%);
+  filter: invert(77%) sepia(8%) saturate(252%) hue-rotate(7deg) brightness(89%) contrast(82%);
 }
 
 
@@ -92,14 +92,22 @@ body {
   border-radius: 12px;
   align-items: center;
   cursor: pointer;
+  color: #382F47;
+  margin: 5px;
 }
 
 #project-add {
   height: 25px;
+  filter: invert(14%) sepia(9%) saturate(2941%) hue-rotate(221deg) brightness(93%) contrast(81%);
 }
 
 #projects:hover {
   box-shadow: 0 0 10px #5E5E5E;
+}
+
+#project input[type=text]:focus {
+  background-color: #A43B48;
+  outline: none;
 }
 
 .tasks {
@@ -117,6 +125,8 @@ body {
   display: flex;
   align-items: center;
   border-radius: 12px;
+  margin: 5px;
+  color: #382F47;
 }
 
 .allTasks, .today, .week, .important {
@@ -137,6 +147,8 @@ body {
   border-radius: 50%;
   box-shadow: 0 0 10px #ADAAA1;
   padding: 8px;
+  margin: 5px;
+  height: 100px;
 }
 
 button:active {
@@ -145,6 +157,13 @@ button:active {
 
 .navbar-icon {
   height: 25px;
+  filter: invert(14%) sepia(9%) saturate(2941%) hue-rotate(221deg) brightness(93%) contrast(81%);
+}
+
+.navbar {
+  background: #ADAAA1;
+  color: #382F47;
+  width: 238px;
 }
 
 .form-popup {
@@ -152,7 +171,7 @@ button:active {
   position: relative;
   right: 35%;
   z-index: 9;
-  background: #2d2d2d;
+  background: #382F47;
   border-radius: 12px;
   color: white;
   opacity: 55;
@@ -172,8 +191,8 @@ button:active {
   margin: 5px 0 22px 0;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(#5E5E5E, #ADAAA1); 
-  color: white;
+  background: #ADAAA1; 
+  color: #382F47;
   font-weight: bold ;
 }
 
@@ -183,13 +202,13 @@ button:active {
 }
 
 .form input[type=text]:focus, .editForm input[type=text]:focus {
-  background-color: #ddd;
+  background-color: #A43B48;
   outline: none;
 }
 
 .form .btn, .editForm .btn {
-  background-color: #5E5E5E;
-  color: white;
+  background-color: #ADAAA1;
+  color: #382F47;
   padding: 16px 20px;
   border: none;
   cursor: pointer;
@@ -199,7 +218,7 @@ button:active {
 }
 
 .form .cancel, .editForm .cancel {
-  background-color: #101010;
+  background-color: #A43B48;
   color: white;
 }
 
@@ -236,8 +255,12 @@ textarea {
   margin: 5px 0 22px 0;
   border: none;
   border-radius: 12px;
-  background: linear-gradient(#5E5E5E, #ADAAA1); 
-  color: white;
+  background: #ADAAA1; 
+  color: #382F47;
+}
+
+textarea:focus {
+  background-color: #A43B48;
 }
 
 .task {
@@ -248,8 +271,8 @@ textarea {
   text-align: center;
   margin: 8px;
   white-space: pre;
-  background: linear-gradient(0.25turn, #101010, #5E5E5E);
-  color: white;
+  background: #382F47;
+  color: #ADAAA1;
   border-radius: 12px;
   padding: 24px;
   position: relative;
@@ -271,7 +294,7 @@ textarea {
   position: relative;
   left: 150px;
   top: 20px;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+  filter: invert(77%) sepia(8%) saturate(252%) hue-rotate(7deg) brightness(89%) contrast(82%);
 }
 
 #textMark, #importance, #importanceEdit {
@@ -292,7 +315,7 @@ textarea {
 }
 
 .selected {
-  background: linear-gradient(white, #a8a8a8) !important;
+  background: #A43B48 !important;
 }
 
 .editButton {
@@ -305,7 +328,7 @@ textarea {
   position: relative;
   right: 150px;
   top: 18px;
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(288deg) brightness(102%) contrast(102%);
+  filter: invert(77%) sepia(8%) saturate(252%) hue-rotate(7deg) brightness(89%) contrast(82%);
 }
 
 .edit-form-popup {
@@ -320,4 +343,50 @@ textarea {
 
 input[data-input] {
   margin-left: 5px;
+}
+
+#confirm {
+  height: 20px;
+  filter: invert(14%) sepia(9%) saturate(2941%) hue-rotate(221deg) brightness(93%) contrast(81%);
+}
+
+.confirm {
+  background: transparent;
+  border: 1px;
+  border-radius: 12px;
+  padding: 0;
+  height: 20px;
+}
+
+.projects {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.projectName {
+  display: flex;
+  align-items: center;
+}
+
+.projectName input[type=text] {
+  border-radius: 12px;
+  background-color: #382F47;
+  color: #ADAAA1;
+  margin: 5px;
+  margin-right: 2px;
+}
+
+.proj {
+  background: none;
+  border: 0;
+  cursor: pointer;
+  flex-grow: 1;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  padding: 5px;
+  margin: 5px;
+  color: #382F47;
 }

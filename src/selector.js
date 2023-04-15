@@ -3,6 +3,10 @@ export function selector(element, variable) {
   const today = document.getElementById("today");
   const week = document.getElementById("week");
   const important = document.getElementById("important");
+  let projects = Array.from(document.getElementsByClassName("proj"));
+  for (let i = 0; i < projects.length; i++) {
+    projects[i].classList.remove("selected");
+  }  
   if (element === all) {
     all.classList.add("selected");
     today.classList.remove("selected");
@@ -31,5 +35,6 @@ export function selector(element, variable) {
     all.classList.remove("selected");
     variable = false;
   };
-  return document.querySelector(".selected");   
+  console.log(variable);  
+  return document.querySelector(".selected");
 };

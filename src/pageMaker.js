@@ -4,7 +4,6 @@ import { editButton } from "./editButton";
 import { selector } from "./selector";  
 
 export function pageMaker(array, arrayTwo, arrayThree, element, variable) {
-  selector(element, variable);
   const idName = selector(element, variable).getAttribute("id");
   let iterate = null;
   if (idName === "all") iterate = array;
