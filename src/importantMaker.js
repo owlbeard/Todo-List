@@ -3,7 +3,8 @@ import { deleteButton } from "./deleteButton";
 import { selector } from "./selector";
 import { editButton } from "./editButton";
 
-export function importantMaker(array, arrayTwo, arrayThree, element, variable) {
+export function importantMaker(array, arrayTwo, arrayThree, arrayFour, element, variable) {
+  selector(element, variable); 
   const container = document.querySelector(".taskContainer");
   const children = Array.from(container.childNodes);
   for (let i = 0; i < children.length; i++) {
@@ -53,8 +54,7 @@ export function importantMaker(array, arrayTwo, arrayThree, element, variable) {
       task.append(editButton);
     };  
   };
-  deleteButton(array, arrayTwo, arrayThree);
-  editButton(array, arrayTwo, arrayThree);
-  checkboxListener(array, arrayTwo, arrayThree, element);
-  selector(element, variable); 
+  deleteButton(array, arrayTwo, arrayThree, arrayFour);
+  editButton(array, arrayTwo, arrayThree, arrayFour);
+  checkboxListener(array, arrayTwo, arrayThree, arrayFour, element);
 }

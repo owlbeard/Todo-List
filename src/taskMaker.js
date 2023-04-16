@@ -2,8 +2,9 @@ import { isSameWeek } from 'date-fns';
 import { compareAsc } from 'date-fns';
 import { format } from 'date-fns';
 import { parse } from 'date-fns';
+import { selector } from './selector';
 
-export function taskMaker(taskList, dailies, weeklies) {
+export function taskMaker(taskList, dailies, weeklies, projectTasks) {
   let today = format(new Date(), 'dd/MM/yyyy');
   class Tasks {
     constructor(title, description, date, importance) {
@@ -24,12 +25,28 @@ export function taskMaker(taskList, dailies, weeklies) {
   
   };
 
+  class Project {
+    constructor(title, description, date, importance, projectName) {
+      this.title = title;
+      this.description = description;
+      this.date = date;
+      this.importance = importance;
+      this.projectName = projectName;
+    }
+  }
+
   let title = document.getElementById("title").value;
   let description = document.getElementById("description").value;
   let date = document.getElementById("date");
   let importance = document.getElementById("importance").checked;
   let objDate = new Date(date.value);
-  let newTask = new Tasks(`${title}`, `${description}`, `${objDate}`, `${importance}`);
-  
-  newTask.distribute();
+  let selected = document.querySelector(".selected").textContent
+  if (selected === "All" || selected === "Today" || selected === "This Week" || selected === "Important") {
+    let newTask = new Tasks(`${title}`, `${description}`, `${objDate}`, `${importance}`);
+    newTask.distribute();
+  }else {
+    let newProjectTask = new Project(`${title}`, `${description}`, `${objDate}`, `${importance}`, `${selected}`)
+    projectTasks.push(newProjectTask);
+    console.log(projectTasks);
+  }
 }
