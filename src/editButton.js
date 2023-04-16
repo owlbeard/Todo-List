@@ -40,7 +40,7 @@ export function changeObject(target, array, arrayTwo, arrayThree, arrayFour) {
     array[target].description = description;
     array[target].date = objDate;
     array[target].importance = importance;
-
+    localStorage.setItem('taskList', JSON.stringify(array))
     let dateNew = format(objDate, 'dd/MM/yyyy');
     let compare = compareAsc(parse(today, 'dd/MM/yyyy', new Date()), parse(dateNew, 'dd/MM/yyyy', new Date()));
     let compareWeek = isSameWeek(parse(today, 'dd/MM/yyyy', new Date()), parse(dateNew, 'dd/MM/yyyy', new Date()));
@@ -85,8 +85,8 @@ export function changeObject(target, array, arrayTwo, arrayThree, arrayFour) {
     arrayFour[target].description = description;
     arrayFour[target].date = objDate;
     arrayFour[target].importance = importance;
+    localStorage.setItem('projectTasks', JSON.stringify(arrayFour)) 
   }
-  
   closeForm();
 }
 

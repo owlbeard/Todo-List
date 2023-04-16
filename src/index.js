@@ -8,7 +8,8 @@ import { importantMaker } from "./importantMaker";
 import { deleteButton } from "./deleteButton";
 import { checkboxListener } from "./checkboxListener";
 import { changeObject, editButton } from "./editButton";
-import { projectListener, projectButtonMaker } from "./projectMaker";
+import { projectListener, projectButtonMaker, loadProjects } from "./projectMaker";
+import { isSameWeek, compareAsc, format, parse } from 'date-fns';
 
 const audio = new Audio();
 audio.src = Waygd;
@@ -26,18 +27,13 @@ const all = document.getElementById("all");
 const today = document.getElementById("today");
 const week = document.getElementById("week");
 const important = document.getElementById("important");
+
 let taskList = [];
 let dailies = [];
 let weeklies = [];
 let projectTasks = [];
+let projectList = [];
 let selected = false;
-// localStorage.setItem('taskList', JSON.stringify(taskList))
-// localStorage.setItem('dailies', JSON.stringify(dailies))
-// localStorage.setItem('weeklies', JSON.stringify(weeklies))
-// localStorage.setItem('projectTasks', JSON.stringify(projectTasks))
-// console.log(localStorage.getItem("taskList"))
-all.classList.add("selected");
-
 function openForm() {
   formDiv.classList.remove("closed");
   formDiv.classList.add("opened");
@@ -61,6 +57,40 @@ export function closeProjectForm() {
   projectDiv.classList.remove("opened");
   projectForm.reset();
 }
+
+if(localStorage.hasOwnProperty('taskList')) {
+  let dist = Array.from(JSON.parse(localStorage.getItem('taskList')));
+  
+  for (let i = 0; i < dist.length; i++) {
+    taskList.push(dist[i]);
+    let today = format(new Date(), 'dd/MM/yyyy');
+    let date = format(new Date(dist[i].date), 'dd/MM/yyyy');
+    let compare = compareAsc(parse(today, 'dd/MM/yyyy', new Date()), parse(date, 'dd/MM/yyyy', new Date()));
+    let compareWeek = isSameWeek(parse(today, 'dd/MM/yyyy', new Date()), parse(date, 'dd/MM/yyyy', new Date()));
+    if (compare === 0) {
+      dailies.push(dist[i]);
+    }  
+    if (compareWeek === true) weeklies.push(dist[i]);
+  }
+}  
+if(localStorage.hasOwnProperty('projectTasks')) projectTasks = JSON.parse(localStorage.getItem('projectTasks'));
+if(localStorage.hasOwnProperty('projectList')) projectList = JSON.parse(localStorage.getItem('projectList'));
+
+window.addEventListener("DOMContentLoaded", () => {
+  if (taskList.length > 0) pageMaker(taskList, dailies, weeklies, projectTasks, all, selected);
+  if (projectList.length > 0) {
+    loadProjects(projectList);
+    projectListener(projectTasks, projectList);
+  }
+  closeForm();
+})
+all.classList.add("selected");
+
+window.addEventListener("submit", () => {
+  localStorage.setItem('taskList', JSON.stringify(taskList));
+  localStorage.setItem('projectTasks', JSON.stringify(projectTasks));
+  localStorage.setItem('projectList', JSON.stringify(projectList));
+});
 
 button.addEventListener("click", () => {
   audio.play();
@@ -91,14 +121,15 @@ formTwo.addEventListener("submit", (e) => {
   else pageMaker(null, null, null, projectTasks, null, null);
 });
 
-projects.addEventListener("click", openProjectForm)
-closeProjects.addEventListener("click", closeProjectForm)
+projects.addEventListener("click", openProjectForm);
+closeProjects.addEventListener("click", closeProjectForm);
 
 projectForm.addEventListener("submit", (e) => {
   e.preventDefault();
   let name = document.getElementById("project").value;
+  projectList.push(name);
   projectButtonMaker(name);
-  projectListener(projectTasks);
+  projectListener(projectTasks, projectList);
   closeProjectForm();
 })
 

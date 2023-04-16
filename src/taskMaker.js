@@ -1,8 +1,4 @@
-import { isSameWeek } from 'date-fns';
-import { compareAsc } from 'date-fns';
-import { format } from 'date-fns';
-import { parse } from 'date-fns';
-import { selector } from './selector';
+import { isSameWeek, compareAsc, format, parse } from 'date-fns';
 
 export function taskMaker(taskList, dailies, weeklies, projectTasks) {
   let today = format(new Date(), 'dd/MM/yyyy');
@@ -47,6 +43,5 @@ export function taskMaker(taskList, dailies, weeklies, projectTasks) {
   }else {
     let newProjectTask = new Project(`${title}`, `${description}`, `${objDate}`, `${importance}`, `${selected}`)
     projectTasks.push(newProjectTask);
-    console.log(projectTasks);
   }
 }

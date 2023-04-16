@@ -35,7 +35,5 @@ export function selector(element, variable) {
     all.classList.remove("selected");
     variable = false;
   };
-  let selected = document.querySelector(".selected")
-  console.log(selected);  
   return document.querySelector(".selected");
 };

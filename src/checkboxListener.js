@@ -5,21 +5,16 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
     for(let i = 0; i < inputSelect.length; i++) {
       inputSelect[i].addEventListener("click", (e) => {
         let target = e.target.getAttribute("data-input");
-        let checkTwo = arrayTwo.includes(array[target]);
-        let checkThree = arrayThree.includes(array[target]);
-        let checkFour = arrayFour.includes(array[target]);
         let indexTwo = arrayTwo.indexOf(array[target]);
         let indexThree = arrayThree.indexOf(array[target]);
-        let indexFour = arrayThree.indexOf(array[target]);
+        let checkTwo = arrayTwo.includes(array[target]);
+        let checkThree = arrayThree.includes(array[target]);
         if (!e.target.checked) {
           if (checkTwo) {
             arrayTwo[indexTwo].importance = "false";
           }
           if (checkThree) {
             arrayThree[indexThree].importance = "false";
-          }
-          if (checkFour) {
-            arrayFour[indexFour].importance = "false";
           }
           array[target].importance = "false";
         }else {
@@ -29,11 +24,9 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
           if (checkThree) {
             arrayThree[indexThree].importance = "true";
           }
-          if (checkFour) {
-            arrayFour[indexFour].importance = "true";
-          }
           array[target].importance = "true";
         }
+        localStorage.setItem('taskList', JSON.stringify(array))  
       });
     };
   }else if (selected === "important") {
@@ -56,16 +49,18 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
           let rem = document.querySelector(`[data-index="${target}"]`);
           rem.remove();
         };
+        localStorage.setItem('taskList', JSON.stringify(array));  
       });
     };
   }else {
     for(let i = 0; i < inputSelect.length; i++) {
       inputSelect[i].addEventListener("click", (e) => {
         let target = e.target.getAttribute("data-input");
-        console.log(target);
         if (!e.target.checked) arrayFour[target].importance = "false";
         else arrayFour[target].importance = "true"
+        localStorage.setItem('projectTasks', JSON.stringify(arrayFour)) 
       })
     }    
   }
+   
 }

@@ -5,8 +5,7 @@ export function deleteButton(array, arrayTwo, arrayThree, arrayFour) {
       let selected = document.querySelector(".selected")
       let idName = selected.getAttribute("id");
       let target = e.target.getAttribute("data-trash");
-      
-      console.log(idName)
+    
       if (idName === "all" || idName === "today" || idName === "week" || idName === "important") {
         let checkTwo = arrayTwo.includes(array[target]);
         let checkThree = arrayThree.includes(array[target]);
@@ -21,15 +20,19 @@ export function deleteButton(array, arrayTwo, arrayThree, arrayFour) {
         if (checkTwo && checkThree) {
           arrayTwo.splice(indexTwo, 1);
           arrayThree.splice(indexThree, 1);
+          
         }
         array.splice(target, 1);
+        
         let rem = document.querySelector(`[data-index="${target}"]`)
         rem.remove();
+        localStorage.setItem('taskList', JSON.stringify(array))
       }else {
         arrayFour.splice(target, 1);
         let rem = document.querySelector(`[data-index="${target}"]`)
         rem.remove();
-      }   
+        localStorage.setItem('projectTasks', JSON.stringify(arrayFour)) 
+      }
     });
   }
 }    

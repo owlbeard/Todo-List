@@ -109,5 +109,5 @@ export function pageMaker(array, arrayTwo, arrayThree, arrayFour, element, varia
   } 
   deleteButton(array, arrayTwo, arrayThree, arrayFour);
   editButton(array, arrayTwo, arrayThree, arrayFour);
-  checkboxListener(array, arrayTwo, arrayThree, arrayFour, element);
+  checkboxListener(array, arrayTwo, arrayThree, arrayFour);
 };

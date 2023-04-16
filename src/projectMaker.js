@@ -19,9 +19,7 @@ export function projectButtonMaker(name) {
   deleteButton.setAttribute("data-projTrash", `${projectNumber}`)
   project.append(deleteButton);
   projectNumber++;
-
 }
-
 
 function projectMaker(e) {
   let projects = Array.from(document.querySelectorAll("[data-project]"));
@@ -35,7 +33,22 @@ function projectMaker(e) {
   project.classList.add("selected");
 };
 
-function deleteProject(e, array) {
+export function loadProjects(array) {
+  for (let i = 0; i < array.length; i++) {
+    let projectButton = document.createElement("button");
+    let deleteButton = document.createElement("button");
+    projectButton.setAttribute("id", `${array[i]}`);
+    projectButton.setAttribute("data-project", `${i}`);
+    projectButton.textContent = `${array[i]}`;
+    document.querySelector(".projects").append(projectButton)
+    let project = document.querySelector(`[data-project="${i}"]`)
+    deleteButton.classList.add("projDel");
+    deleteButton.setAttribute("data-projTrash", `${i}`)
+    project.append(deleteButton);
+  }
+}
+
+function deleteProject(e, array, arrayTwo) {
   let selected = document.querySelector(".selected").getAttribute("id");
   let projectIndex = e.target.getAttribute("data-projTrash")
   let project = document.querySelector(`[data-project="${projectIndex}"]`)
@@ -49,19 +62,23 @@ function deleteProject(e, array) {
     };
   }  
   for (let i = 0; i < array.length; i++) {
-    console.log(projectName);
-    console.log(array[i].projectName);
     if (array[i].projectName === projectName) {
       let index = array.indexOf(array[i])
       array.splice(index, 1);
-      console.log(array);
+      localStorage.setItem('projectTasks', JSON.stringify(array));
+    }
+  }
+  for (let i = 0; i < arrayTwo.length; i++) {
+    if (arrayTwo[i] === projectName) {
+      let index = arrayTwo.indexOf(array[i]);
+      arrayTwo.splice(index, 1)
+      localStorage.setItem('projectList', JSON.stringify(arrayTwo));
     }
   }
   
 }
 
-
-export function projectListener(array) {
+export function projectListener(array, arrayTwo) {
   let projects = Array.from(document.querySelectorAll("[data-project]"));
   for (let i = 0; i < projects.length; i++) {
     projects[i].addEventListener("click", (e) => {
@@ -69,7 +86,7 @@ export function projectListener(array) {
         projectMaker(e);
         pageMaker(null, null, null, array, null, null);
       }else {
-        deleteProject(e, array);
+        deleteProject(e, array, arrayTwo);
       }  
     })
   }  
