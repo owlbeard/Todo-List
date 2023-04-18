@@ -44,7 +44,8 @@ body {
 .content {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
+  padding: 24px;
   flex-grow: 1;
   background: #A43B48;
 }
@@ -73,6 +74,8 @@ body {
 .taskContainer {
   display: flex;
   flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 50px;
   gap: 24px;
   position: relative;
 }
@@ -277,6 +280,7 @@ textarea:focus {
   padding: 24px;
   position: relative;
   z-index: 8;
+  border-left: 0.5rem solid #ADAAA1;
 }
 
 .task:hover {
@@ -290,10 +294,9 @@ textarea:focus {
   height: 50px;
   border: 0;
   padding: 0;
-  appearance: none;
-  position: relative;
-  left: 150px;
-  top: 20px;
+  position: absolute;
+  bottom: 5px;
+  right: 0;
   filter: invert(77%) sepia(8%) saturate(252%) hue-rotate(7deg) brightness(89%) contrast(82%);
 }
 
@@ -324,10 +327,9 @@ textarea:focus {
   height: 45px;
   border: 0;
   padding: 0;
-  appearance: none;
-  position: relative;
-  right: 150px;
-  top: 18px;
+  position: absolute;
+  top: 7px;
+  right: 2px;
   filter: invert(77%) sepia(8%) saturate(252%) hue-rotate(7deg) brightness(89%) contrast(82%);
 }
 
@@ -414,4 +416,51 @@ button[data-project] {
   appearance: none;
   z-index: 9;
   filter: invert(14%) sepia(9%) saturate(2941%) hue-rotate(221deg) brightness(93%) contrast(81%);
+}
+
+.cardText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 30px;
+}
+
+.expandTitle {
+  overflow: visible;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+  position: absolute;
+  font-size: 20px;
+  padding: 24px;
+  top: 0;
+  left: 0;
+  background-color: #5E5E5E;
+  border: 2px #382F47;
+  border-radius: 12px;
+  margin: 8px;
+  width: 276px;
+  height: 200px;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.expandDesc {
+  overflow: visible;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  word-break: break-word;
+  position: absolute;
+  font-size: 20px;
+  padding: 24px;
+  bottom: 0;
+  left: 0;
+  background-color: #5E5E5E;
+  border: 2px #382F47;
+  border-radius: 12px;
+  margin: 8px;
+  width: 276px;
+  height: 300px;
+  cursor: pointer;
+  z-index: 9;
 }

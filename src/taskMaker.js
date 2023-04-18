@@ -2,6 +2,7 @@ import { isSameWeek, compareAsc, format, parse } from 'date-fns';
 
 export function taskMaker(taskList, dailies, weeklies, projectTasks) {
   let today = format(new Date(), 'dd/MM/yyyy');
+  let newTask = null;
   class Tasks {
     constructor(title, description, date, importance) {
       this.title = title;
@@ -38,10 +39,11 @@ export function taskMaker(taskList, dailies, weeklies, projectTasks) {
   let objDate = new Date(date.value);
   let selected = document.querySelector(".selected").textContent
   if (selected === "All" || selected === "Today" || selected === "This Week" || selected === "Important") {
-    let newTask = new Tasks(`${title}`, `${description}`, `${objDate}`, `${importance}`);
+    newTask = new Tasks(`${title}`, `${description}`, `${objDate}`, `${importance}`);
     newTask.distribute();
   }else {
-    let newProjectTask = new Project(`${title}`, `${description}`, `${objDate}`, `${importance}`, `${selected}`)
-    projectTasks.push(newProjectTask);
+    newTask = new Project(`${title}`, `${description}`, `${objDate}`, `${importance}`, `${selected}`)
+    projectTasks.push(newTask);
   }
+  return newTask;
 }

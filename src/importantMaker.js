@@ -10,6 +10,8 @@ export function importantMaker(array, arrayTwo, arrayThree, arrayFour, element, 
   for (let i = 0; i < children.length; i++) {
     container.removeChild(container.lastChild);
   };
+  let titleExpand = false;
+  let descExpand = false;
   for(let i = 0; i < array.length; i++) {
     if (array[i].importance === "true" || array[i].importance === true) {
       let div = document.createElement("div");
@@ -17,18 +19,57 @@ export function importantMaker(array, arrayTwo, arrayThree, arrayFour, element, 
       let input = document.createElement("input");
       let deleteButton = document.createElement("button");
       let editButton = document.createElement("button");
+      let titleP = document.createElement("p");
+      let descP = document.createElement("p");
+      let dateP = document.createElement("p");
+    
       div.classList.add("task");
       div.setAttribute("data-index", `${i}`);
-      container.appendChild(div);
+      container.append(div);
+      
       let task = document.querySelector(`[data-index="${i}"]`);
-      task.textContent = `${array[i].title}\r\n\r\n`;
-      task.textContent += `${array[i].description}\r\n\r\n`;
+      titleP.classList.add("cardText");
+      descP.classList.add("cardText");
+      dateP.classList.add("cardText");
+      titleP.setAttribute("data-title", `${i}`);
+      descP.setAttribute("data-desc", `${i}`);
+      dateP.setAttribute("data-date", `${i}`);
       let date = new Date(array[i].date);
       let dd = String(date.getDate()).padStart(2, '0');
       let mm = String(date.getMonth() + 1).padStart(2, '0');
       let yyyy = date.getFullYear();
-      task.textContent += `Due: ${dd}.` + `${mm}.` + `${yyyy}\r\n\r\n`;
-      
+
+      task.append(titleP);
+      task.append(descP);
+      task.append(dateP);
+
+      let titleSelect = document.querySelector(`[data-title="${i}"]`)
+      let descSelect = document.querySelector(`[data-desc="${i}"]`)
+      let dateSelect = document.querySelector(`[data-date="${i}"]`)
+      titleSelect.textContent = `${array[i].title}`;
+      descSelect.textContent += `${array[i].description}`;
+      dateSelect.textContent += `Due: ${dd}.` + `${mm}.` + `${yyyy}`;
+
+      titleSelect.addEventListener("click", (e) => {
+        if (e.target.offsetWidth < e.target.scrollWidth && !titleExpand) {
+          titleSelect.classList.add("expandTitle")
+          titleExpand = true
+        }else {
+          titleSelect.classList.remove("expandTitle")
+          titleExpand = false
+        }  
+      })
+  
+      descSelect.addEventListener("click", (e) => {
+        if (e.target.offsetWidth < e.target.scrollWidth && !descExpand) {
+          descSelect.classList.add("expandDesc")
+          descExpand = true
+        }else {
+          descSelect.classList.remove("expandDesc")
+          descExpand = false
+        } 
+      })
+
       label.classList.add("textBox");
       label.setAttribute("data-label", `${i}`);
       input.setAttribute("id", "textMark");
@@ -38,7 +79,7 @@ export function importantMaker(array, arrayTwo, arrayThree, arrayFour, element, 
         input.setAttribute("checked", "checked");
       }else {
         input.removeAttribute("checked");
-      }
+      };
       task.append(label);
       
       let labelSelect = document.querySelector(`[data-label="${i}"]`);

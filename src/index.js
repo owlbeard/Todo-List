@@ -102,8 +102,8 @@ cancel.addEventListener("click", closeForm);
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  taskMaker(taskList, dailies, weeklies, projectTasks);
-  cardMaker(taskList, projectTasks);
+  let object = taskMaker(taskList, dailies, weeklies, projectTasks);
+  cardMaker(object, taskList, projectTasks);
   deleteButton(taskList, dailies, weeklies, projectTasks);
   checkboxListener(taskList, dailies, weeklies, projectTasks);
   editButton(taskList, dailies, weeklies, projectTasks);
