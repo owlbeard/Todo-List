@@ -1,14 +1,14 @@
 import Waygd from "./assets/waygd.mp3";
 import './styles/style.css';
 import './styles/normalize-css.css';
-import { taskMaker } from "./taskMaker";
-import { cardMaker } from "./cardMaker";
-import { pageMaker } from "./pageMaker";
-import { importantMaker } from "./importantMaker";
-import { deleteButton } from "./deleteButton";
-import { checkboxListener } from "./checkboxListener";
-import { changeObject, editButton } from "./editButton";
-import { projectListener, projectButtonMaker, loadProjects } from "./projectMaker";
+import { taskMaker } from "./modules/taskMaker";
+import { cardMaker } from "./modules/cardMaker";
+import { pageMaker } from "./modules/pageMaker";
+import { importantMaker } from "./modules/importantMaker";
+import { deleteButton } from "./modules/deleteButton";
+import { checkboxListener } from "./modules/checkboxListener";
+import { changeObject, editButton } from "./modules/editButton";
+import { projectListener, projectButtonMaker, loadProjects } from "./modules/projectMaker";
 import { isSameWeek, compareAsc, format, parse } from 'date-fns';
 
 const audio = new Audio();

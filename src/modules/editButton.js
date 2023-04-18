@@ -1,7 +1,4 @@
-import { isSameWeek } from 'date-fns';
-import { compareAsc } from 'date-fns';
-import { format } from 'date-fns';
-import { parse } from 'date-fns';
+import { isSameWeek, compareAsc, format, parse } from 'date-fns';
 
 const container = document.querySelector(".taskContainer");
 const form = document.querySelector(".editForm");
