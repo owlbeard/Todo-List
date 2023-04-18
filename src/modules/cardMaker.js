@@ -71,6 +71,7 @@ export function cardMaker(object, array, arrayTwo) {
     input.setAttribute("data-input", `${index}`);
     if (object.importance === "true" || object.importance === true) {
       input.setAttribute("checked", "checked");
+      task.classList.add("importantTask")
     }else {
       input.removeAttribute("checked");
     };
@@ -143,6 +144,7 @@ export function cardMaker(object, array, arrayTwo) {
     input.setAttribute("data-input", `${indexTwo}`);
     if (object.importance === "true" || object.importance === true) {
       input.setAttribute("checked", "checked");
+      task.classList.add("importantTask")
     }else {
       input.removeAttribute("checked");
     };

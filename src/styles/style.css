@@ -464,3 +464,35 @@ button[data-project] {
   cursor: pointer;
   z-index: 9;
 }
+
+.importantTask {
+  cursor: pointer;
+  box-shadow: 0 0 0 #ADAAA1;
+  animation: pulse 2s infinite;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 #ADAAA166;
+  }
+  70% {
+      -webkit-box-shadow: 0 0 0 10px #ADAAA100;
+  }
+  100% {
+      -webkit-box-shadow: 0 0 0 0 #ADAAA100;
+  }
+}
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 #ADAAA166;
+    box-shadow: 0 0 0 0 #ADAAA166;
+  }
+  70% {
+      -moz-box-shadow: 0 0 0 10px #ADAAA100;
+      box-shadow: 0 0 0 10px #ADAAA100;
+  }
+  100% {
+      -moz-box-shadow: 0 0 0 0 #ADAAA100;
+      box-shadow: 0 0 0 0 #ADAAA100;
+  }
+}

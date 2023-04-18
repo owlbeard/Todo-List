@@ -77,6 +77,7 @@ export function importantMaker(array, arrayTwo, arrayThree, arrayFour, element, 
       input.setAttribute("data-input", `${i}`);
       if (array[i].importance === "true" || array[i].importance === true) {
         input.setAttribute("checked", "checked");
+        task.classList.add("importantTask")
       }else {
         input.removeAttribute("checked");
       };

@@ -5,6 +5,7 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
     for(let i = 0; i < inputSelect.length; i++) {
       inputSelect[i].addEventListener("click", (e) => {
         let target = e.target.getAttribute("data-input");
+        let task = document.querySelector(`[data-index="${target}"]`)
         let indexTwo = arrayTwo.indexOf(array[target]);
         let indexThree = arrayThree.indexOf(array[target]);
         let checkTwo = arrayTwo.includes(array[target]);
@@ -17,6 +18,8 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
             arrayThree[indexThree].importance = "false";
           }
           array[target].importance = "false";
+          console.log(task);
+          task.classList.remove("importantTask");
         }else {
           if (checkTwo) {
             arrayTwo[indexTwo].importance = "true";
@@ -25,6 +28,7 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
             arrayThree[indexThree].importance = "true";
           }
           array[target].importance = "true";
+          task.classList.add("importantTask");
         }
         localStorage.setItem('taskList', JSON.stringify(array))  
       });
@@ -33,6 +37,7 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
     for(let i = 0; i < inputSelect.length; i++) {
       inputSelect[i].addEventListener("click", (e) => {
         let target = e.target.getAttribute("data-input");
+        let task = document.querySelector(`[data-index="${target}"]`)
         let checkTwo = arrayTwo.includes(array[target]);
         let checkThree = arrayThree.includes(array[target]);
         if (!e.target.checked) {
@@ -48,6 +53,7 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
           array[target].importance = "false";
           let rem = document.querySelector(`[data-index="${target}"]`);
           rem.remove();
+          task.classList.add("importantTask");
         };
         localStorage.setItem('taskList', JSON.stringify(array));  
       });
@@ -56,8 +62,14 @@ export function checkboxListener(array, arrayTwo, arrayThree, arrayFour) {
     for(let i = 0; i < inputSelect.length; i++) {
       inputSelect[i].addEventListener("click", (e) => {
         let target = e.target.getAttribute("data-input");
-        if (!e.target.checked) arrayFour[target].importance = "false";
-        else arrayFour[target].importance = "true"
+        let task = document.querySelector(`[data-index="${target}"]`)
+        if (!e.target.checked) {
+          arrayFour[target].importance = "false";
+          task.classList.remove("importantTask");
+        }else {
+          arrayFour[target].importance = "true"
+          task.classList.add("importantTask");
+        }  
         localStorage.setItem('projectTasks', JSON.stringify(arrayFour)) 
       })
     }    

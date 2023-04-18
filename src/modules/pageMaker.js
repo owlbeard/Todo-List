@@ -85,6 +85,7 @@ export function pageMaker(array, arrayTwo, arrayThree, arrayFour, element, varia
       input.setAttribute("data-input", `${i}`);
       if (iterate[i].importance === "true" || iterate[i].importance === true) {
         input.setAttribute("checked", "checked");
+        task.classList.add("importantTask")
       }else {
         input.removeAttribute("checked");
       };
@@ -168,6 +169,7 @@ export function pageMaker(array, arrayTwo, arrayThree, arrayFour, element, varia
         input.setAttribute("data-input", `${i}`);
         if (arrayFour[i].importance === "true" || arrayFour[i].importance === true) {
           input.setAttribute("checked", "checked");
+          task.classList.add("importantTask")
         }else {
           input.removeAttribute("checked");
         };
