@@ -1,0 +1,13 @@
+{
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
+  },
+  "extends": [
+    "wesbos"
+  ],
+  "rules": {
+    "no-console": 2
+  }
+}
